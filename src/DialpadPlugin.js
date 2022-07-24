@@ -1,4 +1,4 @@
-import { FlexPlugin } from 'flex-plugin';
+import { FlexPlugin } from '@twilio/flex-plugin';
 
 import registerCustomActions from './customActions';
 import registerCustomNotifications from './notifications';
@@ -16,7 +16,7 @@ export default class DialpadPlugin extends FlexPlugin {
 
     loadExternalTransferInterface.bind(this)(flex, manager)
 
-    loadInternalCallInterface.bind(this)(flex, manager)
+    //loadInternalCallInterface.bind(this)(flex, manager)
 
     registerCustomActions(manager);
     registerCustomNotifications(flex, manager);
