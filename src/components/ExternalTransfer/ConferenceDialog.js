@@ -44,6 +44,22 @@ class ConferenceDialog extends React.Component {
     this.closeDialog();
   }
 
+  coldTransfer = async () => {
+    const to = this.state.conferenceTo;    
+    const { task } = this.props;
+    console.log('Mahesh==>', to);
+    console.log('Mahesh==>', task.attributes.call_sid);
+
+    try {
+
+      ConferenceService.coldTransfer(task.attributes.call_sid, to);
+
+    } catch (error) {
+      console.error('Error when doing cold transfer:', error);
+    }
+    this.closeDialog();
+  }
+
   addConferenceParticipant = async () => {
     const to = this.state.conferenceTo;
 
@@ -102,6 +118,12 @@ class ConferenceDialog extends React.Component {
             color="primary"
           >
             {Manager.getInstance().strings.DIALPADExternalTransferPhoneNumberPopupDial}
+          </Button>
+          <Button
+            onClick={this.coldTransfer}
+            color="primary"
+          >
+            {Manager.getInstance().strings.DIALPADExternalTransferPhoneNumberPopupColdTransfer}
           </Button>
           <Button
             onClick={this.closeDialog}

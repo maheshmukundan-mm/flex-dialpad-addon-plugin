@@ -14,7 +14,8 @@ export const loadExternalTransferInterface = (flex, manager) => {
 		DIALPADExternalTransferPhoneNumberPopupHeader: "Enter phone number to add to the conference",
 		DIALPADExternalTransferPhoneNumberPopupTitle: "Phone Number",
 		DIALPADExternalTransferPhoneNumberPopupCancel: "Cancel",
-		DIALPADExternalTransferPhoneNumberPopupDial: "Dial"
+		DIALPADExternalTransferPhoneNumberPopupDial: "Warm Transfer",
+		DIALPADExternalTransferPhoneNumberPopupColdTransfer: "Cold Transfer"
 	  }
   
 	//add translationStrings into manager.strings, preserving anything thats already there - this allows language to be updated outside of updating this plugin

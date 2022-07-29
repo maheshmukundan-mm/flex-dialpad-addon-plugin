@@ -5,6 +5,7 @@
 
 */
 import { ConferenceParticipant, Manager  } from '@twilio/flex-ui';
+import { reject } from 'lodash';
 import { request } from './request';
 
 class ConferenceService {
@@ -124,6 +125,23 @@ class ConferenceService {
       })
       .catch(error => {
         console.error(`Error removing participant ${participantSid} from conference\r\n`, error);
+        reject(error);
+      });
+
+    });
+  }
+
+  coldTransfer = (callSid, transferNum) => {
+    return new Promise((resolve, reject) => {
+
+      request('external-transfer/call-forward', this.manager, {
+        call_sid:callSid, ext_num:transferNum
+      }).then(response => {
+        console.log(`Participant transferred to ${transferNum}`);
+        resolve(response);
+      })
+      .catch(error => {
+        console.error(`Error transferring participant to ${transferNum}\r\n`, error);
         reject(error);
       });
 
